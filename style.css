@@ -1,0 +1,126 @@
+body {
+    font-family: Arial, sans-serif;
+    background: #e0e0e0;
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+    margin: 20px;
+    padding: 20px;
+}
+.top-bar {
+    background: #e0e0e0;
+    padding: 15px;
+    text-align: center;
+    font-size: 1.5em;
+    font-weight: bold;
+    box-shadow: 4px 4px 8px #bebebe, -4px -4px 8px #ffffff;
+    margin-bottom: 20px;
+    position: relative;
+}
+.menu-toggle {
+    display: none;
+    position: absolute;
+    top: 50%;
+    left: 1px;
+    transform: translateY(-50%);
+    font-size: 1.05em;
+    cursor: pointer;
+    background: #e0e0e0;
+    border: none;
+    padding: 12px;
+    box-shadow: 4px 4px 8px #bebebe, -4px -4px 8px #ffffff;
+}
+.container {
+    display: flex;
+    flex-grow: 1;
+}
+.sidebar {
+    width: 250px;
+    background: #e0e0e0;
+    padding: 20px;
+    box-shadow: 8px 8px 16px #bebebe, -8px -8px 16px #ffffff;
+    margin-right: 20px;
+    border-radius: 15px;
+}
+.sidebar h2 {
+    text-align: center;
+}
+.sidebar ul {
+    list-style: none;
+    padding: 0;
+}
+
+.sidebar ul li {
+    padding: 10px;
+    text-align: center;
+    margin: 10px 0;
+    box-shadow: 4px 4px 8px #bebebe, -4px -4px 8px #ffffff;
+    border-radius: 10px;
+    background: #e0e0e0;
+}
+.sidebar ul li:hover {
+    background: #d0d0d0;
+    box-shadow: inset 4px 4px 8px #bebebe, inset -4px -4px 8px #ffffff;
+}
+.sidebar ul li a {
+    text-decoration: none;
+    color: black;
+    display: block;
+}
+main {
+    flex-grow: 1;
+    padding: 20px;
+    border-radius: 15px;
+    box-shadow: 8px 8px 16px #bebebe, -8px -8px 16px #ffffff;
+    background: #e0e0e0;
+}
+.section {
+    display: none;
+}
+.active {
+    display: block;
+}
+.grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
+}
+.card {
+    padding: 20px;
+    text-align: center;
+    border-radius: 15px;
+    background: #e0e0e0;
+    box-shadow: 8px 8px 16px #bebebe, -8px -8px 16px #ffffff;
+}
+button {
+    border: none;
+    padding: 10px 20px;
+    border-radius: 10px;
+    background: #e0e0e0;
+    box-shadow: 4px 4px 8px #bebebe, -4px -4px 8px #ffffff;
+    cursor: pointer;
+}
+button:hover {
+    box-shadow: inset 4px 4px 8px #bebebe, inset -4px -4px 8px #ffffff;
+}
+@media (max-width: 768px) {
+    .menu-toggle {
+        display: block;
+    }
+    .sidebar {
+        position: absolute;
+        top: 40px;
+        left: -100%;
+        width: 200px;
+        transition: left 0.3s ease-in-out;
+    }
+    .sidebar.active {
+        left: 20px;
+    }
+    .container {
+        flex-direction: column;
+    }
+    .grid {
+        grid-template-columns: 1fr;
+    }
+}
