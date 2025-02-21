@@ -4,7 +4,7 @@ body {
     display: flex;
     flex-direction: column;
     height: 90vh;
-    margin: 5px;
+    margin: 0px;
     padding: 15px;
 
 }
