@@ -4,7 +4,6 @@ body {
     display: flex;
     flex-direction: column;
     height: 90vh;
-    margin: 0px;
     padding: 15px;
 
 }
@@ -111,7 +110,8 @@ button:hover {
     }
     .sidebar {
         position: absolute;
-        top: 40px;
+        top: 25px;
+        height: 50vh;
         left: -100%;
         width: 200px;
         transition: left 0.3s ease-in-out;
