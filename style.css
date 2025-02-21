@@ -110,14 +110,14 @@ button:hover {
     }
     .sidebar {
         position: absolute;
-        top: 25px;
+        top: 15px;
         height: 50vh;
         left: -100%;
         width: 200px;
         transition: left 0.3s ease-in-out;
     }
     .sidebar.active {
-        left: 20px;
+        left: 15px;
     }
     .container {
         flex-direction: column;
