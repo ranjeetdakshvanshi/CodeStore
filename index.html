@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Code Store | Neomorphism</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: #e0e0e0;
+            display: flex;
+            flex-direction: column;
+            height: 100vh;
+            margin: 20px;
+            padding: 20px;
+        }
+        .top-bar {
+            background: #e0e0e0;
+            padding: 15px;
+            text-align: center;
+            font-size: 1.5em;
+            font-weight: bold;
+            box-shadow: 4px 4px 8px #bebebe, -4px -4px 8px #ffffff;
+            margin-bottom: 20px;
+            position: relative;
+        }
+        .menu-toggle {
+            display: none;
+            position: absolute;
+            top: 50%;
+            left: 20px;
+            transform: translateY(-50%);
+            font-size: 1.5em;
+            cursor: pointer;
+            background: #e0e0e0;
+            border: none;
+            padding: 10px;
+            border-radius: 50%;
+            box-shadow: 4px 4px 8px #bebebe, -4px -4px 8px #ffffff;
+        }
+        .container {
+            display: flex;
+            flex-grow: 1;
+        }
+        .sidebar {
+            width: 250px;
+            background: #e0e0e0;
+            padding: 20px;
+            box-shadow: 8px 8px 16px #bebebe, -8px -8px 16px #ffffff;
+            margin-right: 20px;
+            border-radius: 15px;
+        }
+        .sidebar h2 {
+            text-align: center;
+        }
+        .sidebar ul {
+            list-style: none;
+            padding: 0;
+        }
+        .sidebar ul li {
+            padding: 10px;
+            text-align: center;
+            margin: 10px 0;
+            box-shadow: 4px 4px 8px #bebebe, -4px -4px 8px #ffffff;
+            border-radius: 10px;
+            background: #e0e0e0;
+        }
+        .sidebar ul li a {
+            text-decoration: none;
+            color: black;
+            display: block;
+        }
+        main {
+            flex-grow: 1;
+            padding: 20px;
+            border-radius: 15px;
+            box-shadow: 8px 8px 16px #bebebe, -8px -8px 16px #ffffff;
+            background: #e0e0e0;
+        }
+        .section {
+            display: none;
+        }
+        .active {
+            display: block;
+        }
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+        }
+        .card {
+            padding: 20px;
+            text-align: center;
+            border-radius: 15px;
+            background: #e0e0e0;
+            box-shadow: 8px 8px 16px #bebebe, -8px -8px 16px #ffffff;
+        }
+        button {
+            border: none;
+            padding: 10px 20px;
+            border-radius: 10px;
+            background: #e0e0e0;
+            box-shadow: 4px 4px 8px #bebebe, -4px -4px 8px #ffffff;
+            cursor: pointer;
+        }
+        button:hover {
+            box-shadow: inset 4px 4px 8px #bebebe, inset -4px -4px 8px #ffffff;
+        }
+        @media (max-width: 768px) {
+            .menu-toggle {
+                display: block;
+            }
+            .sidebar {
+                position: absolute;
+                top: 60px;
+                left: -100%;
+                width: 200px;
+                transition: left 0.3s ease-in-out;
+            }
+            .sidebar.active {
+                left: 20px;
+            }
+            .container {
+                flex-direction: column;
+            }
+            .grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="top-bar">
+        <button class="menu-toggle" onclick="toggleMenu()">☰</button>
+        My Code Store
+    </div>
+    <div class="container">
+        <nav class="sidebar">
+            <h2>Navigation</h2>
+            <ul>
+                <li><a href="#" onclick="showSection('home')">Home</a></li>
+                <li><a href="#" onclick="showSection('templates')">Templates</a></li>
+                <li><a href="#" onclick="showSection('about')">About</a></li>
+                <li><a href="#" onclick="showSection('contact')">Contact</a></li>
+            </ul>
+        </nav>
+        
+        <main>
+            <section id="home" class="section active">
+                <h1>Welcome to My Code Store</h1>
+                <p>Find amazing HTML, CSS, and JavaScript templates.</p>
+            </section>
+            
+            <section id="templates" class="section">
+                <h1>Templates</h1>
+                <div class="grid">
+                    <div class="card">
+                        <h3>HTML Template 1</h3>
+                        <p>Simple and responsive HTML template.</p>
+                        <button onclick="showAlert('HTML Template 1')">View</button>
+                    </div>
+                    <div class="card">
+                        <h3>CSS Neomorphism</h3>
+                        <p>Stylish UI with soft shadows.</p>
+                        <button onclick="showAlert('CSS Neomorphism')">View</button>
+                    </div>
+                    <div class="card">
+                        <h3>JavaScript Slider</h3>
+                        <p>Interactive slider using JavaScript.</p>
+                        <button onclick="showAlert('JavaScript Slider')">View</button>
+                    </div>
+                </div>
+            </section>
+            
+            <section id="about" class="section">
+                <h1>About Us</h1>
+                <p>We provide high-quality code templates for developers and designers.</p>
+            </section>
+            
+            <section id="contact" class="section">
+                <h1>Contact</h1>
+                <p>Email: support@codestore.com</p>
+                <p>Phone: +1234567890</p>
+            </section>
+        </main>
+    </div>
+    
+    <script>
+        function showAlert(template) {
+            alert('You selected: ' + template);
+        }
+        function showSection(sectionId) {
+            document.querySelectorAll('.section').forEach(section => {
+                section.classList.remove('active');
+            });
+            document.getElementById(sectionId).classList.add('active');
+        }
+        function toggleMenu() {
+            document.querySelector('.sidebar').classList.toggle('active');
+        }
+    </script>
+</body>
+</html>
